@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\kido\Documents\class\delta\fpga\delta\simulation\qsim
+vdelta
+Z1 I1YaQ3MX;2aonSeD@I_URf1
+Z2 V^P4UG5`^X?YbRAo<7EgFK1
+Z3 dC:\Users\kido\Documents\class\delta\fpga\delta\simulation\qsim
+Z4 w1620643323
+Z5 8delta.vo
+Z6 Fdelta.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|delta.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 =Ug0AJ:fzCBT?l>]jU4zj1
+!s85 0
+Z11 !s108 1620643327.294000
+Z12 !s107 delta.vo|
+!s101 -O0
+vdelta_vlg_check_tst
+!i10b 1
+!s100 N2DT^H]?@Y8f;QmWb[6?j3
+IH>5BE>kfIADL60e<nMeB<1
+Z13 VbL2>SZ?^Y63OdmNYQkL4n3
+R3
+Z14 w1620643322
+Z15 8delta.vt
+Z16 Fdelta.vt
+L0 69
+R7
+r1
+!s85 0
+31
+Z17 !s108 1620643327.602000
+Z18 !s107 delta.vt|
+Z19 !s90 -work|work|delta.vt|
+!s101 -O0
+R9
+vdelta_vlg_sample_tst
+!i10b 1
+!s100 >ZeWz5S]@HbKH^F;1z4>h1
+IETVOmL;TdMiSd?<4aNAM12
+VLlK^S5k;8ME6BneV7G6Nf1
+R3
+R14
+R15
+R16
+L0 29
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R9
+vdelta_vlg_vec_tst
+!i10b 1
+!s100 9K<3ooB<KWTGf3Q8Pj<Da2
+I57^h4;?1e:S1g1kaYIzkl3
+Z20 VI]l7anjeQ9bHiS;BaOkEd2
+R3
+R14
+R15
+R16
+L0 192
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R9

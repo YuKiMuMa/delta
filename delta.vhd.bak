@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity delta is
+    Port ( D : in std_logic;
+           CLK : in std_logic;
+           RESET : in std_logic;
+           CE : out std_logic;
+end delta;
+
+architecture Behavioral of delta is
+	signal WORK : std_logic_vector(3 downto 0) ;
+	signal DD : std_logic_vector(21 downto 0) ;
+begin
+
+
+process (CLK)	 
+begin
+   if CLK'event and CLK='1' then
+        DD <= DD + '1';
+   end if;  
+end process;
+
+process (DD)	
+begin
+   if DD = "1111111111111111111111" then
+      CE <= '1';
+   else
+      CE <= '0';
+   end if;
+end process ;

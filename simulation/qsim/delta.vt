@@ -1,0 +1,414 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "06/11/2021 10:38:47"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    delta
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module delta_vlg_sample_tst(
+	CLK,
+	X_Di_IN,
+	X_Pu_IN,
+	Y_Di_IN,
+	Y_Pu_IN,
+	Z_Di_IN,
+	Z_Pu_IN,
+	sampler_tx
+);
+input  CLK;
+input  X_Di_IN;
+input  X_Pu_IN;
+input  Y_Di_IN;
+input  Y_Pu_IN;
+input  Z_Di_IN;
+input  Z_Pu_IN;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(CLK or X_Di_IN or X_Pu_IN or Y_Di_IN or Y_Pu_IN or Z_Di_IN or Z_Pu_IN)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module delta_vlg_check_tst (
+	A_Di_OUT,
+	A_Pu_OUT,
+	B_Di_OUT,
+	B_Pu_OUT,
+	C_Di_OUT,
+	C_Pu_OUT,
+	sampler_rx
+);
+input  A_Di_OUT;
+input  A_Pu_OUT;
+input  B_Di_OUT;
+input  B_Pu_OUT;
+input  C_Di_OUT;
+input  C_Pu_OUT;
+input sampler_rx;
+
+reg  A_Di_OUT_expected;
+reg  A_Pu_OUT_expected;
+reg  B_Di_OUT_expected;
+reg  B_Pu_OUT_expected;
+reg  C_Di_OUT_expected;
+reg  C_Pu_OUT_expected;
+
+reg  A_Di_OUT_prev;
+reg  A_Pu_OUT_prev;
+reg  B_Di_OUT_prev;
+reg  B_Pu_OUT_prev;
+reg  C_Di_OUT_prev;
+reg  C_Pu_OUT_prev;
+
+reg  A_Di_OUT_expected_prev;
+reg  A_Pu_OUT_expected_prev;
+reg  B_Di_OUT_expected_prev;
+reg  B_Pu_OUT_expected_prev;
+reg  C_Di_OUT_expected_prev;
+reg  C_Pu_OUT_expected_prev;
+
+reg  last_A_Di_OUT_exp;
+reg  last_A_Pu_OUT_exp;
+reg  last_B_Di_OUT_exp;
+reg  last_B_Pu_OUT_exp;
+reg  last_C_Di_OUT_exp;
+reg  last_C_Pu_OUT_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:6] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 6'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	A_Di_OUT_prev = A_Di_OUT;
+	A_Pu_OUT_prev = A_Pu_OUT;
+	B_Di_OUT_prev = B_Di_OUT;
+	B_Pu_OUT_prev = B_Pu_OUT;
+	C_Di_OUT_prev = C_Di_OUT;
+	C_Pu_OUT_prev = C_Pu_OUT;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	A_Di_OUT_expected_prev = A_Di_OUT_expected;
+	A_Pu_OUT_expected_prev = A_Pu_OUT_expected;
+	B_Di_OUT_expected_prev = B_Di_OUT_expected;
+	B_Pu_OUT_expected_prev = B_Pu_OUT_expected;
+	C_Di_OUT_expected_prev = C_Di_OUT_expected;
+	C_Pu_OUT_expected_prev = C_Pu_OUT_expected;
+end
+
+
+
+// expected A_Di_OUT
+initial
+begin
+	A_Di_OUT_expected = 1'bX;
+	A_Di_OUT_expected = #999000 1'b0;
+end 
+
+// expected A_Pu_OUT
+initial
+begin
+	A_Pu_OUT_expected = 1'bX;
+	A_Pu_OUT_expected = #999000 1'b0;
+end 
+
+// expected B_Di_OUT
+initial
+begin
+	B_Di_OUT_expected = 1'bX;
+	B_Di_OUT_expected = #999000 1'b0;
+end 
+
+// expected B_Pu_OUT
+initial
+begin
+	B_Pu_OUT_expected = 1'bX;
+	B_Pu_OUT_expected = #999000 1'b0;
+end 
+
+// expected C_Di_OUT
+initial
+begin
+	C_Di_OUT_expected = 1'bX;
+	C_Di_OUT_expected = #999000 1'b0;
+end 
+
+// expected C_Pu_OUT
+initial
+begin
+	C_Pu_OUT_expected = 1'bX;
+	C_Pu_OUT_expected = #999000 1'b0;
+end 
+// generate trigger
+always @(A_Di_OUT_expected or A_Di_OUT or A_Pu_OUT_expected or A_Pu_OUT or B_Di_OUT_expected or B_Di_OUT or B_Pu_OUT_expected or B_Pu_OUT or C_Di_OUT_expected or C_Di_OUT or C_Pu_OUT_expected or C_Pu_OUT)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected A_Di_OUT = %b | expected A_Pu_OUT = %b | expected B_Di_OUT = %b | expected B_Pu_OUT = %b | expected C_Di_OUT = %b | expected C_Pu_OUT = %b | ",A_Di_OUT_expected_prev,A_Pu_OUT_expected_prev,B_Di_OUT_expected_prev,B_Pu_OUT_expected_prev,C_Di_OUT_expected_prev,C_Pu_OUT_expected_prev);
+	$display("| real A_Di_OUT = %b | real A_Pu_OUT = %b | real B_Di_OUT = %b | real B_Pu_OUT = %b | real C_Di_OUT = %b | real C_Pu_OUT = %b | ",A_Di_OUT_prev,A_Pu_OUT_prev,B_Di_OUT_prev,B_Pu_OUT_prev,C_Di_OUT_prev,C_Pu_OUT_prev);
+`endif
+	if (
+		( A_Di_OUT_expected_prev !== 1'bx ) && ( A_Di_OUT_prev !== A_Di_OUT_expected_prev )
+		&& ((A_Di_OUT_expected_prev !== last_A_Di_OUT_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_Di_OUT :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_Di_OUT_expected_prev);
+		$display ("     Real value = %b", A_Di_OUT_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_Di_OUT_exp = A_Di_OUT_expected_prev;
+	end
+	if (
+		( A_Pu_OUT_expected_prev !== 1'bx ) && ( A_Pu_OUT_prev !== A_Pu_OUT_expected_prev )
+		&& ((A_Pu_OUT_expected_prev !== last_A_Pu_OUT_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_Pu_OUT :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_Pu_OUT_expected_prev);
+		$display ("     Real value = %b", A_Pu_OUT_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_A_Pu_OUT_exp = A_Pu_OUT_expected_prev;
+	end
+	if (
+		( B_Di_OUT_expected_prev !== 1'bx ) && ( B_Di_OUT_prev !== B_Di_OUT_expected_prev )
+		&& ((B_Di_OUT_expected_prev !== last_B_Di_OUT_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port B_Di_OUT :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", B_Di_OUT_expected_prev);
+		$display ("     Real value = %b", B_Di_OUT_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_B_Di_OUT_exp = B_Di_OUT_expected_prev;
+	end
+	if (
+		( B_Pu_OUT_expected_prev !== 1'bx ) && ( B_Pu_OUT_prev !== B_Pu_OUT_expected_prev )
+		&& ((B_Pu_OUT_expected_prev !== last_B_Pu_OUT_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port B_Pu_OUT :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", B_Pu_OUT_expected_prev);
+		$display ("     Real value = %b", B_Pu_OUT_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_B_Pu_OUT_exp = B_Pu_OUT_expected_prev;
+	end
+	if (
+		( C_Di_OUT_expected_prev !== 1'bx ) && ( C_Di_OUT_prev !== C_Di_OUT_expected_prev )
+		&& ((C_Di_OUT_expected_prev !== last_C_Di_OUT_exp) ||
+			on_first_change[5])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port C_Di_OUT :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", C_Di_OUT_expected_prev);
+		$display ("     Real value = %b", C_Di_OUT_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[5] = 1'b0;
+		last_C_Di_OUT_exp = C_Di_OUT_expected_prev;
+	end
+	if (
+		( C_Pu_OUT_expected_prev !== 1'bx ) && ( C_Pu_OUT_prev !== C_Pu_OUT_expected_prev )
+		&& ((C_Pu_OUT_expected_prev !== last_C_Pu_OUT_exp) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port C_Pu_OUT :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", C_Pu_OUT_expected_prev);
+		$display ("     Real value = %b", C_Pu_OUT_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_C_Pu_OUT_exp = C_Pu_OUT_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module delta_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg CLK;
+reg X_Di_IN;
+reg X_Pu_IN;
+reg Y_Di_IN;
+reg Y_Pu_IN;
+reg Z_Di_IN;
+reg Z_Pu_IN;
+// wires                                               
+wire A_Di_OUT;
+wire A_Pu_OUT;
+wire B_Di_OUT;
+wire B_Pu_OUT;
+wire C_Di_OUT;
+wire C_Pu_OUT;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+delta i1 (
+// port map - connection between master ports and signals/registers   
+	.A_Di_OUT(A_Di_OUT),
+	.A_Pu_OUT(A_Pu_OUT),
+	.B_Di_OUT(B_Di_OUT),
+	.B_Pu_OUT(B_Pu_OUT),
+	.C_Di_OUT(C_Di_OUT),
+	.C_Pu_OUT(C_Pu_OUT),
+	.CLK(CLK),
+	.X_Di_IN(X_Di_IN),
+	.X_Pu_IN(X_Pu_IN),
+	.Y_Di_IN(Y_Di_IN),
+	.Y_Pu_IN(Y_Pu_IN),
+	.Z_Di_IN(Z_Di_IN),
+	.Z_Pu_IN(Z_Pu_IN)
+);
+
+// CLK
+always
+begin
+	CLK = 1'b0;
+	CLK = #100 1'b1;
+	#100;
+end 
+
+// X_Di_IN
+initial
+begin
+	X_Di_IN = 1'b0;
+end 
+
+// X_Pu_IN
+initial
+begin
+	X_Pu_IN = 1'b0;
+end 
+
+// Y_Di_IN
+initial
+begin
+	Y_Di_IN = 1'b1;
+end 
+
+// Y_Pu_IN
+initial
+begin
+	repeat(960)
+	begin
+		Y_Pu_IN = 1'b0;
+		Y_Pu_IN = #500 1'b1;
+		# 500;
+	end
+	Y_Pu_IN = 1'b0;
+end 
+
+// Z_Di_IN
+initial
+begin
+	Z_Di_IN = 1'b0;
+end 
+
+// Z_Pu_IN
+initial
+begin
+	Z_Pu_IN = 1'b0;
+end 
+
+delta_vlg_sample_tst tb_sample (
+	.CLK(CLK),
+	.X_Di_IN(X_Di_IN),
+	.X_Pu_IN(X_Pu_IN),
+	.Y_Di_IN(Y_Di_IN),
+	.Y_Pu_IN(Y_Pu_IN),
+	.Z_Di_IN(Z_Di_IN),
+	.Z_Pu_IN(Z_Pu_IN),
+	.sampler_tx(sampler)
+);
+
+delta_vlg_check_tst tb_out(
+	.A_Di_OUT(A_Di_OUT),
+	.A_Pu_OUT(A_Pu_OUT),
+	.B_Di_OUT(B_Di_OUT),
+	.B_Pu_OUT(B_Pu_OUT),
+	.C_Di_OUT(C_Di_OUT),
+	.C_Pu_OUT(C_Pu_OUT),
+	.sampler_rx(sampler)
+);
+endmodule
+
